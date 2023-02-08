@@ -1,1 +1,1 @@
-# alx-system_engineering-devops
+ alx-system engineering-devops repository containing shell basics repository
