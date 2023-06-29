@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script groups visitors by IP & http CODE from Apache log file
+
+awk '{ arr[$1" "$9]++ } END {for (key in arr) print arr[key], key}' apache-access.log | sort -nr
