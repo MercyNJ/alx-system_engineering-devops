@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script displays all processes including those without TTY, in a user-oriented format & shows process hierachy
+
+ps auxf
