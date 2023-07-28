@@ -1,0 +1,44 @@
+Image Link: https://imgur.com/a/wsxacOo
+
+For every additional element, why you are adding it
+Load Balancer (HAproxy): The load balancer is added to distribute incoming web traffic across multiple servers.
+By doing so, we ensure a balanced load distribution, preventing any single web server from becoming overwhelmed with requests. 
+Additional Web Server (Nginx):
+With two web servers, the load balancer can evenly distribute incoming requests,
+further improving the website's response time and overall reliability.
+If one web server encounters issues or needs maintenance, the load balancer can 
+redirect traffic to the other functioning server, minimizing downtime and ensuring continuous service availability. 
+What distribution algorithm your load balancer is configured with and how it works
+The load balancer is configured with a "round-robin" distribution algorithm.
+How it works:With 2 servers, Server A and Server B, the load balancer will route the first request to Server A, the second request to Server B, the third request back to Server A, and so on.
+This rotation continues in a loop, ensuring that incoming requests are evenly distributed across the available web servers in a balanced manner.
+This ensures that no single server is overwhelmed with requests, and all servers get an equal opportunity to handle incoming traffic. 
+Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both.
+The load balancer in the given setup is enabling an "Active-Active" setup.
+Active-Active Setup: In an Active-Active setup, all servers connected to the load balancer actively handle incoming requests simultaneously.
+Each server is actively serving traffic and distributing the load across multiple servers. 
+When a request comes in, the load balancer forwards it to an available server based on its distribution algorithm.
+All servers are actively working in parallel, sharing the load to collectively handle incoming requests.
+
+Active-Passive Setup: 
+In an Active-Passive setup, only one server (the active server) handles incoming requests actively.
+The other server(s) (the passive server(s)) remain idle or in a standby state, not actively serving traffic.
+The load balancer routes all requests to the active server.
+If the active server becomes unavailable (due to failure or maintenance), the load balancer switches traffic to one of the passive servers, making it the new active server.
+How a database Primary-Replica (Master-Slave) cluster works
+A database Primary-Replica (Master-Slave) cluster is a configuration with multiple database servers, with one designated as the primary (master) server and the others as replicas (slaves).
+The primary server handles both read and write operations, while the replica servers replicate data from the primary server and handle read operations only.
+This setup offers several benefits, including data redundancy, improved read performance, and high availability.
+A Primary-Replica (Master-Slave) database cluster enhances data redundancy, read performance, and high availability by replicating data from the primary server to replica servers. 
+What is the difference between the Primary node and the Replica node in regard to the application
+The primary node in a Primary-Replica cluster handles write operations and is responsible for maintaining data integrity and consistency.
+The replica nodes are read-only copies of the data, optimized for read operations, and provide data redundancy and high availability in case of primary node failure. 
+Issues with this infrastructure:
+Where are SPOF
+Despite having multiple web servers, the load balancer remains a single point of failure. If the load balancer fails, the entire setup could become inaccessible.
+Security issues (no firewall, no HTTPS)
+The infrastructure's security issues arise from the absence of fundamental measures like firewalls and HTTPS encryption.
+Without these security measures, the infrastructure is vulnerable to potential data breaches, malware attacks, and non-compliance with industry standards and regulations,
+posing significant risks to user data and overall system integrity.
+No monitoring
+Without monitoring systems, it becomes difficult to detect and fix performance issues, security threats, or resource problems effectively. Monitoring is essential for staying ahead of potential problems and quickly resolving them.
