@@ -1,0 +1,22 @@
+Image Link: https://imgur.com/a/YEkh3xx
+
+For every additional element, why you are adding it
+1 Additional server: Added to scale up the infrastructure and handle increased traffic or serve
+as a failover in case of high demand.
+Split components : 
+By splitting the components onto their own dedicated servers (Web Server, Application Server, and Database Server),
+we achieve better resource isolation and utilization.
+Each server can be optimized, scaled, and managed independently based on the specific workload of the component it hosts.
+
+Load Balancer (HAproxy) Cluster:
+The load balancer is configured as a cluster  to ensure high availability and fault tolerance.
+
+Clustering provides redundancy.
+
+One load balancer is designated as the active node, while the other acts as the standby node.
+
+ The standby load balancer remains in a passive state, ready to take over if the active load balancer becomes unavailable or experiences issues.
+
+Additional Firewall : 
+The Additional Server is equipped with a dedicated Firewall  to control incoming and outgoing traffic,
+ensuring enhanced security and protecting the server and its services from unauthorized access.
