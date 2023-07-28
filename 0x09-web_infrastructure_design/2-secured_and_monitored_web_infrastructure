@@ -1,0 +1,48 @@
+Image Link: https://imgur.com/a/nKgjL2Y
+
+For every additional element, why you are adding it
+
+Firewalls act as protective barriers between the servers and the internet, controlling incoming and outgoing network traffic based on predefined security rules.
+They add multiple layers of defense, increasing the difficulty for potential attackers to penetrate the system. 
+
+An SSL certificate is added to serve the website over HTTPS. HTTPS encrypts data during transmission between the web server and the user's browser,
+ensuring secure communication and protecting sensitive user data from interception.
+
+3 monitoring clients collect and analyze server metrics, logs, and performance data from within the infrastructure.
+The data collected helps identify anomalies, diagnose potential problems, and make data-driven decisions to optimize system performance and maintain high availability.
+
+What are firewalls for
+They help prevent unauthorized access attempts, protect against potential attacks,
+and ensure the overall security of the web infrastructure.
+
+Why is the traffic served over HTTPS
+ To ensure secure communication between the website and users' browsers. 
+HTTPS encrypts data during transmission, making it unreadable to anyone trying to intercept or eavesdrop on the communication.
+This encryption prevents unauthorized access to sensitive user data while browsing.
+
+What monitoring is used for
+For tracking and observing the health, performance, and availability of a system or infrastructure.
+With monitoring, administrators can plan for capacity needs, ensure high availability, and make data-driven decisions for resource management and system improvements.
+
+How the monitoring tool is collecting data
+Monitoring enables the identification of system issues, such as performance bottlenecks or failures,
+and sends alerts to administrators to check if something is broken or slow.
+
+Explain what to do if you want to monitor your web server QPS
+The monitoring system should be configured with specific alerts triggered when the Queries Per Second (QPS) exceeds predefined thresholds,
+ensuring administrators are promptly notified of potential issues related to query loads.
+
+Issues are with this infrastructure:
+
+Why terminating SSL at the load balancer level is an issue
+It exposes the decrypted traffic between the load balancer and the backend servers.
+This leaves the internal communication vulnerable to potential eavesdropping and security breaches,
+compromising the confidentiality of sensitive data and increasing the risk of unauthorized access to the web servers.
+
+Why having only one MySQL server capable of accepting writes is an issue
+It creates a single point of failure (SPOF) for write operations.
+ If this single server becomes unavailable due to hardware failure, maintenance, or any other reason,
+write requests to the database will be blocked, leading to service disruptions and data inconsistency. 
+
+Why having servers with all the same components (database, web server and application server) might be a problem.
+It can lead to issues during maintenance as updates to one component may impact others on the same server.
