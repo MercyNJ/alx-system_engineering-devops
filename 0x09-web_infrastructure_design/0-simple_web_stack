@@ -1,24 +1,39 @@
 Image Link: https://imgur.com/a/s2mOubj
 
-Explanation: When the user wants to access the website www.foobar.com, the DNS server resolves the domain name to the server's IP address. The HTTP request is sent from the user's computer to the web server, which handles static content and forwards dynamic requests to the application server. The application server processes the request using the code and interacts with the database as needed. The HTTP response is generated, containing the requested data, and sent back to the user's computer, completing the cycle.
+Explanation: When the user wants to access the website www.foobar.com, the DNS server resolves the domain name to the server's IP address.
+The HTTP request is sent from the user's computer to the web server, which handles static content and forwards dynamic requests to the application
+server. The application server processes the request using the code and interacts with the database as needed.
+The HTTP response is generated, containing the requested data, and sent back to the user's computer, completing the cycle.
 
-What is a server: The server is a physical or virtual machine responsible for hosting all the components of the web infrastructure. Servers run an operating system (OS) that enables them to function and manage the resources efficiently.
-What is the role of the domain name: The domain name's job is to change complicated numbers (IP addresses) into simple and easy-to-remember names that people can use and understand better.
+What is a server:
+The server is a physical or virtual machine responsible for hosting all the components of the web infrastructure.
+Servers run an operating system (OS) that enables them to function and manage the resources efficiently.
+What is the role of the domain name: The domain name's job is to change complicated numbers (IP addresses) into simple and easy-to-remember names
+that people can use and understand better.
 
-What type of DNS record is www.foobar.com? "www" is a subdomain, and its DNS record is linked to the main domain "foobar.com." The DNS record uses an 'A' (Address) record in the DNS configuration, which points to the IP address associated with the main domain 'foobar.com.' 
+What type of DNS record is www.foobar.com? "www" is a subdomain, and its DNS record is linked to the main domain "foobar.com."
+The DNS record uses an 'A' (Address) record in the DNS configuration, which points to the IP address associated with the main domain 'foobar.com.' 
 
-What is the role of the web server: To serve web pages, handling incoming HTTP requests from users, and delivering static content. It also forwards dynamic requests to the application server for further processing.
+What is the role of the web server: To serve web pages, handling incoming HTTP requests from users, and delivering static content.
+It also forwards dynamic requests to the application server for further processing.
 
-What is the role of the application server: The application server handles dynamic requests, executes server-side code, and generates dynamic content in response to user interactions. It works alongside the web server to provide personalized content and interactive features on the web application.
+What is the role of the application server: The application server handles dynamic requests, executes server-side code, and generates dynamic conten
+in response to user interactions. It works alongside the web server to provide personalized content and interactive features on the web application.
 
-What is the role of the database: The role of the database is to store, manage, and organize data in a structured format, enabling applications to efficiently store, retrieve, and modify information. It ensures data integrity, security, and data relationships, while also providing indexing for faster data retrieval. 
+What is the role of the database: The role of the database is to store, manage, and organize data in a structured format, enabling applications to
+efficiently store, retrieve, and modify information. It ensures data integrity, security, and data relationships, while also providing
+indexing for faster data retrieval. 
 
-What is the server using to communicate with the computer of the user requesting the website: The server communicates with the user's computer over a network using the TCP/IP (Transmission Control Protocol/Internet Protocol) suite. This protocol enables reliable data transmission and forms the foundation of internet communication.
+What is the server using to communicate with the computer of the user requesting the website:
+The server communicates with the user's computer over a network using the TCP/IP (Transmission Control Protocol/Internet Protocol) suite.
+This protocol enables reliable data transmission and forms the foundation of internet communication.
 
 Issues with this infrastructure:
-SPOF (Single Point of Failure): Since we have only one server in this setup, it becomes a single point of failure. If the server goes down or experiences issues, the entire website will become inaccessible.
+SPOF (Single Point of Failure): Since we have only one server in this setup, it becomes a single point of failure.
+If the server goes down or experiences issues, the entire website will become inaccessible.
 
-Downtime when maintenance is needed: When maintenance is required, such as deploying new code that requires restarting the web server, the website may experience downtime or become temporarily unavailable.
+Downtime when maintenance is needed: When maintenance is required, such as deploying new code that requires restarting the web server,
+the website may experience downtime or become temporarily unavailable.
 
-Scalability limitations: This infrastructure may not handle a large volume of incoming traffic efficiently. As traffic increases, the server's capacity may be reached, leading to slow response times or website crashes.
-
+Scalability limitations: This infrastructure may not handle a large volume of incoming traffic efficiently. As traffic increases,
+the server's capacity may be reached, leading to slow response times or website crashes.
