@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A script that creates an RSA key pair
+#school is private key file,betty paraphrase protection
+ssh-keygen -t rsa -b 4096 -P betty -f school
