@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# A Script that Configure MY Nginx server so that /redirect_me is redirecting to another page.
+
+
