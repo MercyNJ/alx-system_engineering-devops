@@ -1,4 +1,22 @@
 #!/usr/bin/env bash
 # A Script that Configure MY Nginx server so that /redirect_me is redirecting to another page.
 
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+new_location_block="location /redirect_me {
+    rewrite ^ https://www.youtube.com/channel/UCLvBiHEefvum_V1055VkHVA permanent;
+}"
+
+temp_file=$(mktemp)
+awk -v new_block="$new_location_block" '/location \/ {/,/}$/ {print new_block; found=1} !/location \/ {/,/}$/ {if (!found) print} /}$/ {found=0}' /etc/nginx/sites-available/default > "$temp_file"
+sudo mv "$temp_file" /etc/nginx/sites-available/default
+
+sudo nginx -t
+sudo service nginx restart
+
+
+
 
