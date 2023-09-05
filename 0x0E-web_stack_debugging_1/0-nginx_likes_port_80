@@ -2,10 +2,10 @@
 
 
 #checking if nginx is installed
-dpkg -l | grep -q "nginx" && echo "Nginx is installed" || echo "Nginx is not installed"
+# dpkg -l | grep -q "nginx" && echo "Nginx is installed" || echo "Nginx is not installed"
 
-#checked if nginx is listening on port 80
-sudo netstat -tuln | grep ":80 "
+# checked if nginx is listening on port 80
+# sudo netstat -tuln | grep ":80 "
 
 sudo apt-get update
 
@@ -20,8 +20,8 @@ sudo apt-get update
 # I activated the "default" Nginx site configuration by creating a symbolic link in the "sites-enabled" directory.
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
-sudo nginx -t
+# sudo nginx -t
 
 sudo service nginx restart
 
-sudo service nginx status
+# sudo service nginx status
