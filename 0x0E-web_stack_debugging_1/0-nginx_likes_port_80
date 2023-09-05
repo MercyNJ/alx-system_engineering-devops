@@ -9,13 +9,13 @@ sudo netstat -tuln | grep ":80 "
 
 sudo apt-get update
 
-sudo vi /etc/nginx/nginx.conf
+# sudo vi /etc/nginx/nginx.conf
 
-#I added:under http block
-#server {
- #listen 80;
-#server_name _;
-#{
+# I added:under http block
+# server {
+# listen 80;
+# server_name _;
+# {
 
 # I activated the "default" Nginx site configuration by creating a symbolic link in the "sites-enabled" directory.
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
