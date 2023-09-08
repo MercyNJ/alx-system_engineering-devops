@@ -36,11 +36,12 @@ defaults
 frontend  MercyNJ-frontend
         bind *:80
         mode http
+        http-request set-header X-Forwarded-Proto http
         default_backend MercyNJ-backend
 
 frontend https_frontend
-        bind *:443 ssl crt /etc/haproxy/certificates/0000_csr-certbot.pem
-        mode https
+        bind *:443 ssl crt /etc/haproxy/certificates/mercynjuguna.tech_pem
+        http-request set-header X-Forwarded-Proto https
         default_backend MercyNJ-backend
 
 backend MercyNJ-backend
