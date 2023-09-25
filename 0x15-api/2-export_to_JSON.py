@@ -19,16 +19,12 @@ if __name__ == '__main__':
 
     tasks = response.json()
 
-    data = {
-            empl_id: [
-                {
-                    "task": task.get('title'),
-                    "completed": task.get('completed'),
-                    "username": empl_username
-                }
-                for task in tasks
-                ]
-            }
-    json_filename = "{}.json".format(empl_id)
-    with open(json_filename, 'w') as json_file:
-        json.dump(data, json_file)
+    data = {empl_id: []}
+    for task in tasks:
+        data[empl_id].append({
+            "task": task.get('title'),
+            "completed": task.get('completed'),
+            "username": empl_username
+        })
+    with open('{}.json'.format(empl_id), 'w') as fl:
+        json.dump(data, fl)
