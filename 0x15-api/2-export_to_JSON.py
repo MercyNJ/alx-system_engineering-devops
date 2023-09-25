@@ -3,6 +3,7 @@
 A script making a GET request to a REST API.
 Displays an employess's todo list's progress.
 """
+
 import json
 import requests
 import sys
@@ -26,5 +27,5 @@ if __name__ == '__main__':
             "completed": task.get('completed'),
             "username": empl_username
         })
-    with open('{}.json'.format(empl_id), 'w') as fl:
-        json.dump(data, fl)
+    with open('{}.json'.format(empl_id), 'w') as filename:
+        json.dump(data, filename)
