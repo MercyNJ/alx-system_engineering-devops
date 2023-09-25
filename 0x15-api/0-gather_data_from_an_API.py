@@ -11,12 +11,12 @@ if __name__ == '__main__':
     empl_id = sys.argv[1]
     baseUrl = "https://jsonplaceholder.typicode.com/users"
     empl_url = baseUrl + "/" + empl_id
-
     response = requests.get(empl_url)
     empl_name = response.json().get('name')
 
     todoUrl = empl_url + "/todos"
     response = requests.get(todoUrl)
+
     tasks = response.json()
     count_complete = 0
     complete_tasks = []
