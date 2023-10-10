@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
-Returns a list containing the titles of all hot articles
-for a given subreddit.
+parses the title of all hot articles, and prints
+a sorted count of given keywords.
 """
+
 import requests
 after = None
 
@@ -31,3 +32,25 @@ def recurse(subreddit, hot_list=[]):
         return hot_list
     else:
         return (None)
+
+
+def count_words(subreddit, word_list, word_counts=None):
+    """Achieves the sorting"""
+    if word_counts is None:
+        word_counts = {}
+    hot_articles = recurse(subreddit)
+    if hot_articles is None:
+        return
+    for article_title in hot_articles:
+        words = article_title.lower().split()
+        words = [word.strip('.,!') for word in words]
+
+        for word in words:
+            if word.lower() in [w.lower() for w in word_list]:
+                if word.lower() in word_counts:
+                    word_counts[word.lower()] += 1
+                else:
+                    word_counts[word.lower()] = 1
+    sorted_counts = sorted(word_counts.items(), key=lambda x: (-x[1], x[0]))
+    for word, count in sorted_counts:
+        print("{}: {}".format(word, count))
