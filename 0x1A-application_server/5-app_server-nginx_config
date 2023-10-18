@@ -20,4 +20,15 @@ server {
     location /api/ {
         proxy_pass http://127.0.0.1:5002/api;
     }
+
+    # Servers root
+    location / {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_v4/web_dynamic/airbnb-webdynamic.sock;
+    }
+
+    # Serve static content for AirBnB_clone_v4
+    location /static {
+        proxy_pass http://127.0.0.1:5003;
+    }
 }

@@ -7,7 +7,7 @@ server {
     # Serves airbnb-onepage route proxying to a Unix socket
     location /airbnb-onepage/ {
         include proxy_params;
-        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_2/web_flask/airbnb-onepage.sock;
+        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_v2/web_flask/airbnb-onepage.sock;
     }
 
     # Serves airbnb-dynamic/number_odd_or_even route with an int parameter
