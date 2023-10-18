@@ -1,0 +1,12 @@
+# Configuration for Nginx for the /airbnb-onepage/ route
+
+server {
+    listen 80;
+    server_name 100.25.197.219;
+
+    # servers route matching airbnb-onepage
+    location /airbnb-onepage/ {
+        include proxy_params;
+        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_2/web_flask/airbnb-onepage.sock;
+    }
+}
