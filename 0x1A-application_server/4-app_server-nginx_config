@@ -2,22 +2,21 @@
 
 server {
     listen 80;
-    server_name 100.25.197.219;
+    server_name _;
 
-    # Serves airbnb-onepage route proxying to a Unix socket
     location /airbnb-onepage/ {
-        include proxy_params;
-        proxy_pass http://unix:/home/ubuntu/AirBnB_clone_v2/web_flask/airbnb-onepage.sock;
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
     }
 
-    # Serves airbnb-dynamic/number_odd_or_even route with an int parameter
-    location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-        include proxy_params;
-        proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+    #Serves airbnb-dynamic/number_odd_or_even route with an int parameter
+    location /airbnb-dynamic/ {
+        proxy_pass http://localhost:5001/;
     }
 
-    # Serves api route
+    # Servers API route
     location /api/ {
-        proxy_pass http://127.0.0.1:5002/api;
+        proxy_pass http://localhost:5002;
     }
 }
